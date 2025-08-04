@@ -25,7 +25,7 @@ const NavMenu = () => {
 };
 const Navbar = () => {
   return (
-    <div className="navbar max-w-[1320px] mx-auto py-3 lg:py-5">
+    <div className="navbar max-w-[1320px] mx-auto py-3 lg:py-5 p-0 px-5">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -59,7 +59,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal px-1 space-x-5 2xl:space-x-8">
             {
                 NavMenu()
             }
