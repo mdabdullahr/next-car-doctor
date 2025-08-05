@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -18,7 +19,8 @@ const LoginForm = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    try {
+    toast("Submitting.....")
+      try {
       const result = await signIn("credentials", {
         ...data,
         redirect: false,

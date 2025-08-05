@@ -1,3 +1,5 @@
+"use client";
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -24,6 +26,7 @@ const NavMenu = () => {
   );
 };
 const Navbar = () => {
+  const { data: session, status } = useSession();
   return (
     <div className="navbar max-w-[1320px] mx-auto py-3 lg:py-5 p-0 px-5">
       <div className="navbar-start">
@@ -49,9 +52,7 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            {
-                NavMenu()
-            }
+            {NavMenu()}
           </ul>
         </div>
         <Link href={"/"} className="text-xl">
@@ -60,21 +61,27 @@ const Navbar = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 space-x-5 2xl:space-x-8">
-            {
-                NavMenu()
-            }
+          {NavMenu()}
         </ul>
       </div>
       <div className="navbar-end space-x-5">
         <ul className="menu menu-horizontal px-1 space-x-5">
-          <li className="text-[#444444] font-semibold text-lg">
-        <Link href={"/login"}>Login</Link>
-      </li>
-      <li className="text-[#444444] font-semibold text-lg">
-        <Link href={"/register"}>Register</Link>
-      </li>
+          {status === "authenticated" ? (
+            <><li onClick={() => signOut()} className="text-[#444444] font-semibold text-lg cursor-pointer">LogOut</li></>
+          ) : (
+            <>
+              <li className="text-[#444444] font-semibold text-lg">
+                <Link href={"/login"}>Login</Link>
+              </li>
+              <li className="text-[#444444] font-semibold text-lg">
+                <Link href={"/register"}>Register</Link>
+              </li>
+            </>
+          )}
         </ul>
-        <a className="btn btn-outline text-[#FF3811] text-lg rounded">Appointment</a>
+        <a className="btn btn-outline text-[#FF3811] text-lg rounded">
+          Appointment
+        </a>
       </div>
     </div>
   );

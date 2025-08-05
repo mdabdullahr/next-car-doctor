@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { registerUser } from "@/app/actions/auth/registerUser";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const RegisterForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -16,6 +17,7 @@ const RegisterForm = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
+    toast("Submitting....")
     const response = await registerUser(data);
     // Check if the response is successful
     if (response?.success && response.insertedId) {
