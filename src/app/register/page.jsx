@@ -10,11 +10,13 @@ const Register = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
     console.log("Form Data:", data);
+    reset();
   };
   return (
     <div className="flex flex-col md:flex-row gap-5 justify-evenly items-center max-w-[1320px] mx-auto my-8 px-5">
