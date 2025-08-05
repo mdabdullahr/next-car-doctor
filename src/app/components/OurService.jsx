@@ -39,7 +39,7 @@ const OurService = async () => {
                   <h2 className="font-bold text-xl lg:text-2xl text-[#444444]">
                     {item.title}
                   </h2>
-                  <p className="font-bold text-lg lg:text-xl text-[#FF3811] mt-5">
+                  <p className="font-bold text-lg lg:text-xl text-[#FF3811] mt-2">
                     Price : ${item.price}
                   </p>
                 </div>
