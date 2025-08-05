@@ -6,7 +6,7 @@ import { FaArrowRight } from "react-icons/fa";
 import { LuFileText } from "react-icons/lu";
 import { HiOutlinePlayCircle } from "react-icons/hi2";
 
-const page = async ({ params }) => {
+const ServiceDetails = async ({ params }) => {
   const p = await params;
   const serviceCollection = DBConnect(collectionsNameObj.servicesCollection);
   const data = await serviceCollection.findOne({ _id: new ObjectId(p.id) });
@@ -156,7 +156,8 @@ const page = async ({ params }) => {
         </div>
 
         <div className="col-span-12 lg:col-span-4 space-y-7">
-          <div className="bg-[#F3F3F3] rounded-[10px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-7">
+            <div className="bg-[#F3F3F3] rounded-[10px]">
             <div className="p-[40px]">
               <h2 className="text-2xl font-bold text-[#151515] mb-5">
                 Services
@@ -270,10 +271,12 @@ const page = async ({ params }) => {
               Proceed Checkout
             </button>
           </div>
+          </div>
+
         </div>
       </section>
     </div>
   );
 };
 
-export default page;
+export default ServiceDetails;

@@ -65,7 +65,15 @@ const Navbar = () => {
             }
         </ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end space-x-5">
+        <ul className="menu menu-horizontal px-1 space-x-5">
+          <li className="text-[#444444] font-semibold text-lg">
+        <Link href={"/login"}>Login</Link>
+      </li>
+      <li className="text-[#444444] font-semibold text-lg">
+        <Link href={"/register"}>Register</Link>
+      </li>
+        </ul>
         <a className="btn btn-outline text-[#FF3811] text-lg rounded">Appointment</a>
       </div>
     </div>
