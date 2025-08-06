@@ -2,7 +2,9 @@
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
+import Swal from "sweetalert2";
 
 const NavMenu = () => {
   return (
@@ -26,7 +28,20 @@ const NavMenu = () => {
   );
 };
 const Navbar = () => {
+  const router = useRouter();
   const { data: session, status } = useSession();
+
+  const handleSignOut = async ()=> {
+    const result = await signOut({redirect: false});
+    if(result){
+      Swal.fire({
+          title: "Logged Out Successful!",
+          icon: "success",
+        });
+        router.push("/login");
+    }
+        
+  }
   return (
     <div className="navbar max-w-[1320px] mx-auto py-3 lg:py-5 p-0 px-5">
       <div className="navbar-start">
@@ -65,9 +80,13 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end space-x-5">
-        <ul className="menu menu-horizontal px-1 space-x-5">
+        <ul className="menu menu-horizontal px-1 space-x-5 items-center">
           {status === "authenticated" ? (
-            <><li onClick={() => signOut()} className="text-[#444444] font-semibold text-lg cursor-pointer">LogOut</li></>
+            <>
+            <figure>
+              <Image className="rounded-full" src={session?.user?.image} width={50} height={50} alt="user avatar"/>
+            </figure>
+            <button onClick={handleSignOut} className="text-[#444444] font-semibold text-lg cursor-pointer btn">LogOut</button></>
           ) : (
             <>
               <li className="text-[#444444] font-semibold text-lg">
