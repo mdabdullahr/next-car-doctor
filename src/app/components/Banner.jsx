@@ -4,7 +4,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const Banner = () => {
   return (
-    <div className="max-w-[1140px] mx-auto mt-10 px-5">
+    <div className="max-w-[1140px] mx-auto mt-8 px-5">
       <figure className="relative w-full aspect-[1140/600]">
         <Image
           className="rounded-[10px] object-cover"

@@ -9,7 +9,7 @@ const OurService = async () => {
   const data = await serviceCollection.find({}).toArray();
 
   return (
-    <section className="max-w-[1140px] mx-auto mt-20 px-5">
+    <section className="max-w-[1140px] mx-auto mt-32 px-5">
       <p className="text-xl font-bold text-[#FF3811] text-center">Service</p>
       <h2 className="text-3xl lg:text-5xl font-bold text-[#151515] text-center my-5">
         Our Service Area
@@ -52,6 +52,11 @@ const OurService = async () => {
             </div>
           );
         })}
+      </div>
+      <div className="flex justify-center items-center">
+        <button className="px-6 py-3 rounded-[5px] text-[16px] text-[#FF3811] border border-[#FF3811] font-semibold hover:bg-[#FF3811] hover:text-white cursor-pointer mt-12">
+          More Services
+        </button>
       </div>
     </section>
   );
