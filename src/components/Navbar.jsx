@@ -43,7 +43,7 @@ const Navbar = () => {
         
   }
   return (
-    <div className="navbar max-w-[1320px] mx-auto py-3 lg:py-5 p-0 px-5">
+    <div className="navbar max-w-[1140px] mx-auto py-3 lg:py-5 p-0 px-5">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -84,7 +84,12 @@ const Navbar = () => {
           {status === "authenticated" ? (
             <>
             <figure>
-              <Image className="rounded-full" src={session?.user?.image} width={50} height={50} alt="user avatar"/>
+              {
+                session?.user?.image ? <Image className="rounded-full" src={session?.user?.image} width={50} height={50} alt="user avatar"/>
+                :
+                <></>
+              }
+              
             </figure>
             <button onClick={handleSignOut} className="text-[#444444] font-semibold text-lg cursor-pointer btn">LogOut</button></>
           ) : (

@@ -9,7 +9,7 @@ const OurService = async () => {
   const data = await serviceCollection.find({}).toArray();
 
   return (
-    <section className="max-w-[1320px] mx-auto mt-20 px-5">
+    <section className="max-w-[1140px] mx-auto mt-20 px-5">
       <p className="text-xl font-bold text-[#FF3811] text-center">Service</p>
       <h2 className="text-3xl lg:text-5xl font-bold text-[#151515] text-center my-5">
         Our Service Area
@@ -22,7 +22,7 @@ const OurService = async () => {
         {data.map((item) => {
           return (
             <div
-              className="col-span-12 md:col-span-6 lg:col-span-4 p-6 h-full border border-[#E8E8E8] rounded-[10px]"
+              className="col-span-12 sm:col-span-6 lg:col-span-4 p-6 h-full border border-[#E8E8E8] rounded-[10px]"
               key={item._id}
             >
               <figure className="w-full h-3/4 flex justify-center items-center">

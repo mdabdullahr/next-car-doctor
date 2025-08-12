@@ -62,7 +62,7 @@ const ServiceDetails = async ({ params }) => {
           </h1>
           <p className="text-[#737373] text-[16px] mt-6">{data.description}</p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 lg:mt-7 2xl:mt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6 lg:mt-7 2xl:mt-8">
             {facilities.map((facility) => {
               return (
                 <div
@@ -91,7 +91,7 @@ const ServiceDetails = async ({ params }) => {
             <p className="text-[#737373] text-[16px] mt-6">
               {data.description}
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 2xl:mt-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6 2xl:mt-8">
               <div className="border border-[#E8E8E8] rounded-[10px] px-9 py-10">
                 <div className="flex justify-center items-center">
                   <div className="bg-[#ff39111a] px-4 py-4 rounded-full">
